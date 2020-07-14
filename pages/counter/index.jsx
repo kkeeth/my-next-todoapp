@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { RootStyles } from '../styles';
-import { add } from '../stores/counter';
+import { RootStyles } from '../../styles';
+import { add } from '../../stores/counter';
+import Button from './components/button';
 
 export default () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ export default () => {
 
   return (
     <RootStyles>
-      <button onClick={handleClick}>click me!!</button>
+      <Button onClick={handleClick}>click me!!</Button>
       <div>{count} times</div>
     </RootStyles>
   );
