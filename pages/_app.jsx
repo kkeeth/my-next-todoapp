@@ -1,7 +1,9 @@
 import App from 'next/app';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import resetCss from 'ress';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
+
+import store from '../stores';
 
 const GlobalStyle = createGlobalStyle`
   ${resetCss}
@@ -23,10 +25,12 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     );
   }
 }
