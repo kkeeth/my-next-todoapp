@@ -1,0 +1,33 @@
+{
+  "name": "my-next-todoapp",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export",
+    "serve": "serve out"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "node ./git/commit-msg.js",
+      "pre-push": "node ./git/pre-push.js"
+    }
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
+    "next": "latest",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-redux": "^7.2.0",
+    "ress": "^2.0.4",
+    "styled-components": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.8.0",
+    "boxen": "^4.2.0",
+    "husky": "^4.2.5",
+    "serve": "^11.3.2"
+  },
+  "license": "MIT"
+}
