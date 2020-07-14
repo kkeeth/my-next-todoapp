@@ -1,11 +1,11 @@
 /* git hoooks commit-msg */
-/* コミットメッセージのprefix確認 例： hoge: */
+/* The example of commit message→ feat: login page with validation logic */
 const boxen = require('boxen');
 const fs = require('fs');
-// プレフィックス一覧
-const prefix = ['fix', 'add', 'feat', 'refactor', 'perf', 'style', 'chore'];
+// the list of prefix
+const prefix = ['fix', 'add', 'feat', 'refactor', 'perf', 'style', 'chore', 'docs'];
 
-//コミットメッセージ取得、チェック
+// get commit message and validate
 let git_message = fs.readFileSync('./.git/COMMIT_EDITMSG', 'utf8').trim();
 let isMissmatch = !prefix.some((str) => {
   let pattern = new RegExp(String.raw`^${str}:\s.*`, 'i');
@@ -14,14 +14,14 @@ let isMissmatch = !prefix.some((str) => {
 
 if (isMissmatch) {
   console.error(
-    boxen('☠⚠️コミットメッセージにプレフィックスをつけてね from 高沼  prefix:半角スペース ⚠️️☠', {
+    boxen('☠⚠️ Please add prefix to commit message! ⚠️️☠', {
       borderStyle: 'double',
       align: 'center',
     })
   );
-  //異常終了 コミット中止
+  // any error occurred, stop committing
   process.exit(1);
 } else {
-  //正常終了
+  // finish committing
   process.exit(0);
 }
