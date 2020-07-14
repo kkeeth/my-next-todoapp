@@ -1,4 +1,4 @@
-# Example app with styled-components
+# My Next ToDo App
 
 This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
 
@@ -17,9 +17,9 @@ Deploy the example using [Vercel](https://vercel.com):
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npx create-next-app --example with-styled-components with-styled-components-app
+npx create-next-app --example with-styled-components my-next-todoapp
 # or
-yarn create next-app --example with-styled-components with-styled-components-app
+yarn create next-app --example with-styled-components my-next-todoapp
 ```
 
 ### Download manually
@@ -58,14 +58,14 @@ When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `ne
 **components/StyledLink.js**
 
 ```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
+import Link from 'next/link';
+import styled from 'styled-components';
 
 const StyledLink = ({ as, children, className, href }) => (
   <Link href={href} as={as} passHref>
     <a className={className}>{children}</a>
   </Link>
-)
+);
 
 export default styled(StyledLink)`
   color: #0075e0;
@@ -81,19 +81,19 @@ export default styled(StyledLink)`
     outline: none;
     border: 0;
   }
-`
+`;
 ```
 
 **pages/index.js**
 
 ```javascript
-import StyledLink from '../components/StyledLink'
+import StyledLink from '../components/StyledLink';
 
 export default () => (
   <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
     First post
   </StyledLink>
-)
+);
 ```
 
 </details>

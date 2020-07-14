@@ -7,14 +7,14 @@ const branch_name = execSync(`git branch --contains`)
 
 if (branch_name === 'develop' || branch_name === 'release') {
   console.error(
-    boxen(`☠⚠️⚠️⚠️${branch_name}ブランチにpushしないで！！ from高沼⚠️⚠️⚠️️☠`, {
+    boxen(`☠⚠️⚠️⚠️Don't push to ${branch_name} branch directly!!⚠️⚠️⚠️️☠`, {
       borderStyle: 'double',
       align: 'center',
     })
   );
-  //異常終了 push中止
+  // any error occurred, stop pushing
   process.exit(1);
 } else {
-  //正常終了
+  // finish pushing
   process.exit(0);
 }
